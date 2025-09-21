@@ -1,9 +1,10 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default Constructor
 Bureaucrat::Bureaucrat() : name_("Unknown"), grade_(150)
 {
-    std::cout << "Default Constructor was called\n";
+    std::cout << "Bureaucrat Default Constructor was called\n";
 }
 
 // Parametric Constructor
@@ -23,7 +24,7 @@ Bureaucrat::Bureaucrat( Bureaucrat const &other)
     : name_(other.name_),
     grade_(other.grade_)
 {
-    std::cout << "Copy Constructor was called\n";
+    std::cout << "Bureaucrat Copy Constructor was called\n";
 }
 
 // Destructor
@@ -75,6 +76,21 @@ void    Bureaucrat::decrementGrade()
         throw GradeTooLowException();
     this->grade_++;
     std::cout << this->name_ << " grade was decremented.\n";
+}
+
+// Sign form
+void    Bureaucrat::signForm( Form &f )
+{
+    try
+    {
+        f.beSigned(*this);
+        std::cout << this->getName() << " signed " << f.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << this->getName() << " couldn't sign " << f.getName()
+                  << " because " << e.what() << ".\n";
+    }
 }
 
 // Exceptions

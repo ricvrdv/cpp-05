@@ -1,3 +1,4 @@
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
 int main()
@@ -6,15 +7,21 @@ int main()
     std::cout << "\n_______________________________________________\n";
     try
     {
-        Bureaucrat  b1("Ethel", 2);
-        Bureaucrat  b2(b1);
+        Bureaucrat  b1("Cronenberg", 1);
+        Bureaucrat  b2("Almodóvar", 150);
+        Bureaucrat  b3(b2);
+        Bureaucrat  b4;
         std::cout << b1 << std::endl;
         std::cout << b2 << std::endl;
-        
-        b1.incrementGrade();
+        std::cout << b3 << std::endl;
+        std::cout << b4 << std::endl;
+
+        b4 = b1;
+        b1.decrementGrade();
         std::cout << b1 << std::endl;
 
-        b1.incrementGrade();
+        b2.decrementGrade();
+        std::cout << b2 << std::endl;
     }
     catch (std::exception &e)
     {
@@ -26,18 +33,9 @@ int main()
 
     try
     {
-        Bureaucrat  b1("Lana", 149);
-        Bureaucrat  b2;  
-        std::cout << b1 << std::endl;
-        std::cout << b2 << std::endl;
+        Bureaucrat  b1("Penélope", 149);
 
-        b2 = b1;
-        std::cout << b2 << std::endl;
 
-        b1.decrementGrade();
-        std::cout << b1 << std::endl;
-
-        b1.decrementGrade();
     }
     catch (std::exception &e)
     {
