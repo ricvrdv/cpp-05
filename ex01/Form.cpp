@@ -53,10 +53,9 @@ Form    &Form::operator=( Form const &other )
 // Insertion operator overload
 std::ostream &operator<<( std::ostream& os, const Form& f )
 {
-    os << "Form: \"" << f.getName() << std::setw(15)
-       << "Signed: " << (f.getIsSigned() ? "yes" : "no") << std::setw(15)
-       << "Grade to sign: " << f.getGradeToSign() << std::setw(15)
-       << "Grade to execute: " << f.getGradeToExec() << std::endl;
+    os << "Form: \"" << f.getName() << "\", Signed: " << (f.getIsSigned() ? "yes" : "no")
+       << ", Grade to sign: " << f.getGradeToSign()
+       << ", Grade to execute: " << f.getGradeToExec() << std::endl;
     return (os);
 }
 
@@ -91,12 +90,12 @@ void    Form::beSigned( Bureaucrat const &b )
 }
 
 // Exceptions
-const char *Form::GradeTooHighException::what() const throw()
+const char  *Form::GradeTooHighException::what() const throw()
 {
-    return ("Form grade is too high!");
+    return ("Form error: Grade is too high!");
 }
 
 const char  *Form::GradeTooLowException::what() const throw()
 {
-    return ("Form grade is too low!");
+    return ("Form error: Grade is too low!");
 }

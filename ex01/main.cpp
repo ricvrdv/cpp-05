@@ -11,12 +11,14 @@ int main()
         Bureaucrat  b2("Almodóvar", 150);
         Bureaucrat  b3(b2);
         Bureaucrat  b4;
+        
         std::cout << b1 << std::endl;
         std::cout << b2 << std::endl;
         std::cout << b3 << std::endl;
         std::cout << b4 << std::endl;
 
         b4 = b1;
+        std::cout << b4 << std::endl;
         b1.decrementGrade();
         std::cout << b1 << std::endl;
 
@@ -31,37 +33,73 @@ int main()
     std::cout << std::endl << "TEST 2:";
     std::cout << "\n_______________________________________________\n";
 
-    try
     {
         Bureaucrat  b1("Penélope", 149);
+        Form        f1("Form-A", 10, 2);
+        Form        f2(f1);
+        Form        f3;
 
-
-    }
-    catch (std::exception &e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        f3 = f1;
+        std::cout << b1 << std::endl;
+        std::cout << f1 << std::endl;
+        std::cout << f2 << std::endl;
+        std::cout << f3 << std::endl;
     }
     
     std::cout << std::endl << "TEST 3:";
     std::cout << "\n_______________________________________________\n";
 
+    {
+        Bureaucrat  b1("Lynch", 1);
+        Bureaucrat  b2("Coppola", 15);
+        Form        f1("Form-B", 10, 10);
+        Form        f2("Form-C", 10, 10);
+        std::cout << b1 << std::endl;
+        std::cout << b2 << std::endl;
+        std::cout << f1 << std::endl;
+        std::cout << f2 << std::endl;
+
+        b1.signForm(f1);
+        std::cout << f1 << std::endl;
+
+        b2.signForm(f2);
+        std::cout << f2 << std::endl;
+    }
+ 
+    std::cout << std::endl << "TEST 4:";
+    std::cout << "\n_______________________________________________\n";
+
     try
     {
-        Bureaucrat  b3("Charli", 0);
-        std::cout << b3 << std::endl;
+        Form    f1("Form-D", 0, 151);
+
+        std::cout << f1 << std::endl;
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << std::endl << "TEST 4:";
+    std::cout << std::endl << "TEST 5:";
     std::cout << "\n_______________________________________________\n";
 
     try
     {
-        Bureaucrat  b4("Troye", 160);
-        std::cout << b4 << std::endl;
+        Bureaucrat  b1("Araki", 1);
+        Bureaucrat  b2("Kubrick", 150);
+        Form        f1("Form-E", 100, 100);
+
+        std::cout << b1 << std::endl;
+        std::cout << b2 << std::endl;
+        std::cout << f1 << std::endl;
+
+        std::cout << "Bureaucrat \"" << b1.getName() << "\" attempts to sign \"" << f1.getName() << "\"\n";
+        f1.beSigned(b1);
+        std::cout << f1 << std::endl;
+
+        std::cout << "Bureaucrat \"" << b2.getName() << "\" attempts to sign \"" << f1.getName() << "\"\n";
+        f1.beSigned(b2);
+        std::cout << f1 << std::endl;
     }
     catch (std::exception &e)
     {
