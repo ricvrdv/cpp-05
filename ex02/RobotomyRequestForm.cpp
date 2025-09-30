@@ -38,11 +38,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const &
 // Member function
 void    RobotomyRequestForm::executeAction() const
 {
-    srand(time(NULL));
-
     std::cout << "** DRILLING NOISES **\n";
     if (std::rand() % 2 == 0)
-        std::cout << target_ << " has been robotomized\n";
+        std::cout << CYAN << target_ << " has been robotomized" << RESET << "\n";
     else
-        std::cout << target_ << " has not been robotomized\n";
+        std::cout << YELLOW << target_ << " has not been robotomized" << RESET << "\n";
 }
