@@ -8,7 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm()
 
 // Parametric Constructor
 RobotomyRequestForm::RobotomyRequestForm( std::string target )
-    : AForm("Shrubbery Form", 145, 137), target_(target)
+    : AForm("Robotomy Form", 72, 45), target_(target)
 {
     std::cout << "RobotomyRequestForm was created with target " << target << "\n";
 }
@@ -38,5 +38,11 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const &
 // Member function
 void    RobotomyRequestForm::executeAction() const
 {
-    
+    srand(time(NULL));
+
+    std::cout << "** DRILLING NOISES **\n";
+    if (std::rand() % 2 == 0)
+        std::cout << target_ << " has been robotomized\n";
+    else
+        std::cout << target_ << " has not been robotomized\n";
 }
