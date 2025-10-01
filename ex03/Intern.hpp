@@ -1,7 +1,9 @@
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
-# include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 class   Intern
 {
@@ -12,7 +14,14 @@ class   Intern
         Intern  &operator=( Intern const &other );
         ~Intern();
 
-        AForm   *makeForm( std::string form, std::string target );
+        AForm   *makeForm( const std::string &formName, const std::string &formTarget );
+
+    class   FormDoesntExistException : public std::exception
+    {
+        public:
+
+            virtual const char  *what() const throw();
+    };
 };
 
 #endif
