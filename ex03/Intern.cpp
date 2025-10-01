@@ -42,10 +42,9 @@ AForm   *Intern::makeForm( const std::string &formName, const std::string &formT
         }
     }
 
-    if (index == -1)
-        throw FormDoesntExistException();
-
-    std::cout << "Intern creates " << formName << "\n";
+    if (index != -1)
+        std::cout << "Intern creates " << formName << "\n";
+    
     switch (index)
     {
         case 0:
@@ -54,6 +53,8 @@ AForm   *Intern::makeForm( const std::string &formName, const std::string &formT
             return (new RobotomyRequestForm(formTarget));
         case 2:
             return (new PresidentialPardonForm(formTarget));
+        default:
+            throw FormDoesntExistException();
     }
 }
 
