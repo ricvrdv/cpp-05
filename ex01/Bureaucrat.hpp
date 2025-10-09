@@ -1,6 +1,11 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# define GREEN "\033[0;92m"
+# define GBOLD "\033[1;32m"
+# define RED "\033[0;91m"
+# define RESET "\033[0m"
+
 # include <iostream>
 # include <string>
 # include <exception>
