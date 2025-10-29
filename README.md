@@ -6,4 +6,5 @@ This module introduces C++ exception handling. It covers the `try`, `catch`, and
 
 ----
 ✅ Check out [C++ Module 06](https://github.com/ricvrdv/cpp-06) - type conversions
+
 ⏪️ Go back to [C++ Module 04](https://github.com/ricvrdv/cpp-04) - abstract classes, subtyping
